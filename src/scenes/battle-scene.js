@@ -127,32 +127,32 @@ export class BattleScene extends Phaser.Scene {
   }
 
   #createMainInfoPane() {
-    const rectWidth = 1016;
-    const rectHeight = 124;
     const padding = 4;
+    const rectHeight = 124;
 
-    const g = this.add.graphics();
-    const x = this.scale.width - rectWidth - padding;
-    const y = this.scale.height - rectHeight - padding;
-    g.fillStyle(0xede4f3, 1);
-    g.fillRect(x + 1, y + 1, rectWidth - 1, rectHeight - 1);
-    g.lineStyle(8, 0xe4434a, 10);
-    g.strokeRect(x, y, rectWidth, rectHeight);
+    this.add
+      .rectangle(
+        padding,
+        this.scale.height - rectHeight - padding,
+        this.scale.width - padding * 2,
+        rectHeight,
+        0xede4f3,
+        1
+      )
+      .setOrigin(0)
+      .setStrokeStyle(8, 0xe4434a, 1);
   }
 
   #createMainInfoSubPane() {
     const rectWidth = 500;
     const rectHeight = 124;
 
-    const g = this.add.graphics();
-    const x = 0;
-    const y = 0;
-    g.fillStyle(0xede4f3, 1);
-    g.fillRect(x + 1, y + 1, rectWidth - 1, rectHeight - 1);
-    g.lineStyle(8, 0x905ac2, 10);
-    g.strokeRect(x, y, rectWidth, rectHeight);
+    const rect = this.add
+      .rectangle(0, 0, rectWidth, rectHeight, 0xede4f3, 1)
+      .setOrigin(0)
+      .setStrokeStyle(8, 0x905ac2, 1);
 
-    return g;
+    return rect;
   }
 
   #createHealthBar(x, y) {
